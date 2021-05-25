@@ -28,10 +28,30 @@ const displayCountries = countries =>{
         const countryInfo = `
             <h3 class="country-name">${country.name}</h3>
             <p class= "capital-name">${country.capital}</p>
-            <button >detail</button>
+            <button onclick="countryDtail('${country.name}')">detail</button>
         `
         countryDiv.innerHTML = countryInfo;
         CountriesDiv.appendChild(countryDiv);        
         
     }
 }
+    const countryDtail = name =>{
+        const url =`
+        https://restcountries.eu/rest/v2/name/${name}`
+        fetch(url)
+        .then(res=> res.json())
+        .then(data => countryInfo(data[0]));
+    }
+    const countryInfo = country =>{
+        const countryDetail = document.getElementById("country-detail");
+        countryDetail.innerHTML = `
+        <h1>Name: ${country.name}</h1>
+        <h3>City:  ${country.capital}</h3>
+        <h3>Population: ${country.population}</h3>
+        <img src="${country.flag}"> 
+        <h3>${country.region}</h3>
+        `
+    }
+
+
+    
