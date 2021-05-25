@@ -28,7 +28,7 @@ const displayCountries = countries =>{
         const countryInfo = `
             <h3 class="country-name">${country.name}</h3>
             <p class= "capital-name">${country.capital}</p>
-            <button onclick="countryDtail('${country.name}')">detail</button>
+            <button class="button" onclick="countryDtail('${country.name}')">detail</button>
         `
         countryDiv.innerHTML = countryInfo;
         CountriesDiv.appendChild(countryDiv);        
@@ -49,7 +49,7 @@ const displayCountries = countries =>{
         <h3>City:  ${country.capital}</h3>
         <h3>Population: ${country.population}</h3>
         <img src="${country.flag}"> 
-        <h3>${country.region}</h3>
+        <h3>Region:  ${country.region}</h3>
         `
     }
 
